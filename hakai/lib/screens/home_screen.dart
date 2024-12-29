@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                                   backgroundColor: Colors.green[100],
                                   child: Icon(Icons.add, color: Colors.green),
                                 ),
-                                title: Text('Tạo ví mới'),
+                                title: Text('Create a new wallet'),
                                 onTap: () {
                                   // Xử lý tạo ví mới
                                   Navigator.pop(context);
@@ -130,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Icon(Icons.logout, color: Colors.red),
                           SizedBox(width: 8),
-                          Text('Đăng xuất'),
+                          Text('Log Out'),
                         ],
                       ),
                       onTap: () {
@@ -191,7 +191,7 @@ class HomeScreen extends StatelessWidget {
                           child: Icon(Icons.arrow_downward, color: Colors.orange),
                         ),
                         SizedBox(height: 8),
-                        Text('Nhận'),
+                        Text('Receive'),
                       ],
                     ),
                     Column(
@@ -201,7 +201,7 @@ class HomeScreen extends StatelessWidget {
                           child: Icon(Icons.arrow_upward, color: Colors.orange),
                         ),
                         SizedBox(height: 8),
-                        Text('Gửi'),
+                        Text('Send'),
                       ],
                     ),
                     Column(
@@ -221,7 +221,7 @@ class HomeScreen extends StatelessWidget {
                           child: Icon(Icons.shopping_cart, color: Colors.orange),
                         ),
                         SizedBox(height: 8),
-                        Text('Mua'),
+                        Text('Buy'),
                       ],
                     ),
                   ],
@@ -251,28 +251,30 @@ class HomeScreen extends StatelessWidget {
         unselectedItemColor: Colors.grey,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, color: Colors.grey),
             label: 'Trang chủ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view),
+            icon: Icon(Icons.grid_view, color: Colors.grey),
             label: 'Bộ sưu tập',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.swap_horiz),
+            icon: Icon(Icons.swap_horiz, color: Colors.grey),
             label: 'Swap',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
+            icon: Icon(Icons.history, color: Colors.grey),
             label: 'Lịch sử',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.network_check),
+            icon: Icon(Icons.network_check, color: Colors.grey),
             label: 'Mạng lưới',
           ),
         ],
         onTap: (index) {
-          // Xử lý chuyển đổi màn hình
+          if (index == 1) {
+            Navigator.pushReplacementNamed(context, '/collection');
+          }
         },
       ),
     );

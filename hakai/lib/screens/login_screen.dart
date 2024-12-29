@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     } else {
       setState(() {
-        _errorMessage = "Mật khẩu không đúng. Vui lòng thử lại!";
+        _errorMessage = "ERROR PASSWORD!!! PLEASE TRY AGAIN";
       });
     }
   }
@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Đăng nhập",
+                "LOG IN",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  labelText: "Nhập mật khẩu",
+                  labelText: "Password",
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _login,
-                child: Text("Đăng nhập"),
+                child: Text("Log in"),
               ),
             ],
           ),

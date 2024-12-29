@@ -1,4 +1,4 @@
-# dmm
+# Hakai Wallet
 
 A new Flutter project.
 

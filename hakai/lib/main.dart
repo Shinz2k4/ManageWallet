@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'dmm wallet',
+      title: 'Hakai Wallet',
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),

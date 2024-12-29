@@ -1,4 +1,4 @@
-name: dmm
+name: hakai
 description: hệ thống quản lý ví tiền mã hoá
 
 publish_to: 'none'
@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  mongo_dart: ^0.9.0
   english_words: ^4.0.0
   provider: ^6.0.0
 
