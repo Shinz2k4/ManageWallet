@@ -1,13 +1,29 @@
+import 'package:dmm/screens/screens.dart';
 import 'package:flutter/material.dart';
-import '../widgets/token_card.dart';
 
-class HomeScreen extends StatelessWidget {
-  @override 
+
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = [
+    HomeScreen(),
+    CollectionScreen(),
+    SwapScreen(),
+    HistoryScreen(),
+    LastScreen()
+  ];
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Tắt nút back mặc định
+        automaticallyImplyLeading: false,
         toolbarHeight: 80,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -27,8 +43,8 @@ class HomeScreen extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20)
-                            )
+                              topRight: Radius.circular(20),
+                            ),
                           ),
                           child: Column(
                             children: [
@@ -40,7 +56,6 @@ class HomeScreen extends StatelessWidget {
                                 title: Text('Ví 1'),
                                 subtitle: Text('0x123...abc'),
                                 onTap: () {
-                                  // Cập nhật thông tin ví hiển thị
                                   Navigator.pop(context);
                                 },
                               ),
@@ -49,10 +64,9 @@ class HomeScreen extends StatelessWidget {
                                   backgroundColor: Colors.orange[100],
                                   child: Icon(Icons.account_balance_wallet, color: Colors.orange),
                                 ),
-                                title: Text('Ví 2'), 
+                                title: Text('Ví 2'),
                                 subtitle: Text('0x456...def'),
                                 onTap: () {
-                                  // Cập nhật thông tin ví hiển thị
                                   Navigator.pop(context);
                                 },
                               ),
@@ -63,7 +77,6 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 title: Text('Tạo ví mới'),
                                 onTap: () {
-                                  // Xử lý tạo ví mới
                                   Navigator.pop(context);
                                 },
                               ),
@@ -73,22 +86,18 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   IconButton(
                                     icon: Icon(Icons.edit, color: Colors.blue),
-                                    onPressed: () {
-                                      // Xử lý sửa ví
-                                    },
+                                    onPressed: () {},
                                   ),
                                   IconButton(
                                     icon: Icon(Icons.delete, color: Colors.red),
-                                    onPressed: () {
-                                      // Xử lý xóa ví
-                                    },
+                                    onPressed: () {},
                                   ),
                                 ],
                               ),
                             ],
                           ),
                         );
-                      }
+                      },
                     );
                   },
                   child: CircleAvatar(
@@ -103,17 +112,11 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Ví của tôi',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                     ),
                     Text(
                       '0x123...abc',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[600],
-                      ),
+                      style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                     ),
                   ],
                 ),
@@ -144,111 +147,14 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            color: Colors.white,
-            padding: EdgeInsets.all(20),
-            child: Column(
-              children: [
-                Text(
-                  '\$1,573.00',
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 4),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '+\$127.50',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: const Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      '(+1.02%)',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: const Color.fromARGB(255, 138, 252, 142),
-                      backgroundColor: const Color.fromARGB(255, 215, 215, 215),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: const Color.fromARGB(255, 255, 209, 141),
-                          child: Icon(Icons.arrow_downward, color: Colors.orange),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Nhận'),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.orange[100],
-                          child: Icon(Icons.arrow_upward, color: Colors.orange),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Gửi'),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.orange[100],
-                          child: Icon(Icons.swap_horiz, color: Colors.orange),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Swap'),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.orange[100],
-                          child: Icon(Icons.shopping_cart, color: Colors.orange),
-                        ),
-                        SizedBox(height: 8),
-                        Text('Mua'),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 12),
-          Expanded(
-            child: Container(
-              color: Colors.white,
-              child: ListView(
-                padding: EdgeInsets.all(16.0),
-                children: [
-                  TokenCard(tokenName: 'Solana', balance: '5.4', price: '23.00'),
-                  TokenCard(tokenName: 'Ethereum', balance: '0.8', price: '1,550.00'),
-                  TokenCard(tokenName: 'USDT', balance: '127.5', price: '1.00'),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.orange,
         unselectedItemColor: Colors.grey,
+        selectedFontSize: 14,
+        unselectedFontSize: 12,
+        currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -272,7 +178,9 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
         onTap: (index) {
-          // Xử lý chuyển đổi màn hình
+          setState(() {
+            _currentIndex = index;
+          });
         },
       ),
     );

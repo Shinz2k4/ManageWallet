@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'home_page.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_passwordController.text == _correctPassword) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } else {
       setState(() {
