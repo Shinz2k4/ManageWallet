@@ -120,7 +120,24 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
+                SizedBox(width: 10,),
+                DropdownButton<String>(
+                  value: 'Ethereum', // Mạng mặc định
+                  items: ['Ethereum', 'Solana', 'Polygon'].map((String network) {
+                    return DropdownMenuItem<String>(
+                      value: network,
+                      child: Text(network),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    if (newValue != null) {
+                      // Thực hiện logic chuyển mạng tại đây
+                      print('Chuyển sang mạng: $newValue');
+                    }
+                  },
+                ),
                 Spacer(),
+                
                 IconButton(
                   icon: Icon(Icons.qr_code_scanner),
                   onPressed: () {},
